@@ -1,0 +1,54 @@
+@startuml
+
+
+abstract class Actor
+class User
+class Attachment
+
+
+Actor <|-- User
+Attachment *- User
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+abstract Actor{
+-id
+-name
+-sex
+-age
+-email
+-phone
+-cardNum
+-address
+-sysdate
+}
+
+class Attachment{
+-id
+-path
+-type
+-sysdate
+}
+
+class User {
+-id
+-username
+-password
+-isValid
+-lastLoginTime
+-Attachment
+}
+
+
+User *-* Point
+class Point{
+-id
+-count
+}
+note right:用户每次登录点数加一，判断用户的活跃程序
+
+
+@enduml
