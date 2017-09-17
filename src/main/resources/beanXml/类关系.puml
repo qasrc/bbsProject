@@ -14,6 +14,7 @@ DAYS
 HOURS
 MINUTES
 }
+
 abstract Actor{
 -id
 -name
@@ -38,17 +39,70 @@ class User {
 -username
 -password
 -isValid
+-level
 -lastLoginTime
 -Attachment
+-registerTime
+-image
 }
 
+User*-*level
 
-User *-* Point
+
+class level{
+-id,
+-point
+-description
+}
+Point*-*level
 class Point{
 -id
 -count
 }
-note right:用户每次登录点数加一，判断用户的活跃程序
+
+User *-* userConfig
+class userConfig{
+-id
+-User
+-configJson
+}
+
+class organization{
+-id
+-name
+-state
+-description
+-image
+}
+
+stick*-*organization
+stick*-*User
+class stick{
+-id
+-title
+-subTitle
+-content
+-User
+-state
+-organization
+-sendTime
+-parentId
+}
+
+User *-* image
+organization *-* image
+class image{
+-id
+-description
+-path
+-updateTime
+-state
+}
+
+
+
+
+
 
 
 @enduml
