@@ -1,5 +1,5 @@
+import com.zhangzhan.bbs.util.StringUtil;
 import org.junit.Test;
-import util.StringUtil;
 
 /**
  * @author zhan
